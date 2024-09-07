@@ -1,0 +1,16 @@
+// using kadane's algo
+
+long long maxSubarraySum(vector<int> arr, int n)
+{
+    long long maxi =0, m=0;
+    for(int i=0;i<n;i++){
+        m=m+arr[i];
+        if(maxi<m){
+            maxi=m;
+        }
+        if(m<0){
+            m=0;
+        }
+    }
+    return maxi;
+}
