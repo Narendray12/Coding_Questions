@@ -1,0 +1,24 @@
+// two loops, check if they are equal to s, if yes thn push them in array.
+
+#include <bits/stdc++.h>
+
+vector<vector<int>> pairSum(vector<int> &arr, int s){
+   vector<vector<int>> v;
+   vector<bool>b(arr.size(),true);
+   sort(arr.begin(),arr.end());
+   int n = arr.size(),k=0;
+   for(int i=0;i<n;i++){
+      for(int j=0;j<n;j++){
+          if(arr[i] + arr[j] > s) break;
+           if(arr[i] + arr[j] == s and i<j )
+           {             
+               vector<int>l;
+               l.push_back(min(arr[i], arr[j]));
+               l.push_back(max(arr[i], arr[j]));
+               v.push_back(l);
+           }
+      }
+   }
+   sort(v.begin(),v.end());
+   return v;
+}
